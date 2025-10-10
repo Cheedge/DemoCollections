@@ -1,0 +1,14 @@
+import { Code, Play, Boxes, Blocks, BookOpen, Home, ChevronRight, Terminal, CheckCircle, XCircle, Loader, Lock, Database, Cloud, FileSpreadsheet, Workflow, Cpu, ShieldCheck, Zap, AlertCircle, Fingerprint, BugPlay, BookmarkMinus, MessageSquare, Shield, Activity } from 'lucide-react';
+
+const getTabDefinitions = () => ({
+  playground: { id: 'playground', label: 'API Playground', icon: Play },
+  architecture: { id: 'architecture', label: 'Architecture', icon: BookOpen },
+  code: { id: 'code', label: 'Code', icon: Terminal },
+  interactive: { id: 'interactive', label: 'Interactive Demo', icon: Play },
+  visualization: { id: 'visualization', label: 'Live Visualization', icon: Activity },
+  comparison: { id: 'comparison', label: 'Security Comparison', icon: Shield },
+  flow: { id: 'flow', label: 'Message Flow', icon: MessageSquare },
+  performance: { id: 'performance', label: 'Performance', icon: Activity }
+});
+
+export default getTabDefinitions;
