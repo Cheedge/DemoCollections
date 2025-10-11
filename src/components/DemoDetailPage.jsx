@@ -87,9 +87,11 @@ const DemoDetailPage = ({ demo, onBack, getDemoConfig }) => {
                 <InteractiveTab demoId={demo.id} demoPath={demo.path} />
             )}
             {activeTab === 'visualization' && <VisualizationTab />}
-            {activeTab === 'comparison' && <ExpressionTreeTab />}
+            {activeTab === 'comparison' && <ComparisonTab />}
             {activeTab === 'flow' && <MessageFlowTab />}
+            {activeTab === 'message' && <MessagingSystemsTab />}
             {activeTab === 'performance' && <PerformanceTab />}
+            {activeTab === 'pattern' && <ExpressionTreeTab />}
         </div>
     );
 };

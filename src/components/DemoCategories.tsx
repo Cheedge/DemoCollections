@@ -33,6 +33,7 @@ const demoCategories = [
     icon: ShieldCheck,
     cases: [
       { id: 'owasp', name: 'OWASP Best Practices', tech: ['Security', '.NET'], status: 'live' },
+      { id: 'csrf', name: 'OWASP - CSRF', tech: ['CSRF', '.NET'], status: 'live', path: '/api/CsrfDemo/token' },
       { id: 'spof', name: 'Single Point of Failure Prevention', tech: ['Architecture', 'Resilience'], status: '' },
       // { id: 'hipaa', name: 'HIPAA Compliance', tech: ['Encryption', 'Auditing'], status: 'live' },
       // { id: 'pci-dss', name: 'PCI-DSS', tech: ['Encryption', 'Tokenization'], status: 'live' },
@@ -69,9 +70,10 @@ const demoCategories = [
     title: 'Messaging & ESB',
     icon: Zap,
     cases: [
-      { id: 'kafka', name: 'Apache Kafka', tech: ['Kafka', 'Confluent'], status: 'live' },
+      { id: 'kafka', name: 'Apache Kafka', tech: ['Kafka', 'Confluent'], status: '' },
       { id: 'rabbitmq', name: 'RabbitMQ', tech: ['RabbitMQ', 'MassTransit'], status: 'live' },
       { id: 'esb', name: 'Enterprise Service Bus', tech: ['NServiceBus'], status: '' },
+      { id: 'message-compare', name: 'Compare Messaging', tech: ['demo'], status: 'live' },
     ]
   },
     {

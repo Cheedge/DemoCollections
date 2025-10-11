@@ -90,6 +90,50 @@ const ApiPlaygroundTab = ({ demoId, demoPath }) => {
         }
     };
 
+    const callCsrfDemoApi = async () => {
+        setIsLoading02(true);
+        setError(null);
+        setResponse(null);
+
+        try {
+            // 1. Get CSRF token (this will also set the antiforgery cookie)
+            const csrfRes = await fetch(`${apiUrl}/api/CsrfDemo/token`, {
+                method: 'GET',
+                credentials: 'include', // very important for cookie
+            });
+            const csrfData = await csrfRes.json();
+            console.log(csrfData);
+            const csrfToken = csrfData.csrfToken;
+            console.log(csrfToken);
+
+            // 2. Call secure endpoint with both cookie + header
+            const res = await fetch(`${apiUrl}/api/CsrfDemo/secure-action`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-XSRF-TOKEN': csrfToken, // required antiforgery header
+                },
+                credentials: 'include', // sends the cookie
+                body: JSON.stringify({ message: 'CSRF test from React' }),
+            });
+
+            const data = await res.json();
+            if (!res.ok)
+                throw new Error(data?.title || 'CSRF validation failed');
+
+            setResponse({
+                status: res.status,
+                statusText: res.statusText,
+                headers: Object.fromEntries(res.headers.entries()),
+                data: data,
+            });
+        } catch (err) {
+            setError(err.message);
+        } finally {
+            setIsLoading02(false);
+        }
+    };
+
     const simulateMockApi = async () => {
         setIsLoading02(true);
         setError(null);
@@ -148,7 +192,7 @@ const ApiPlaygroundTab = ({ demoId, demoPath }) => {
                                     : 'GET'
                             }
                             path={demoPath}
-                            description="Get products with pagination (AWS Lambda + Postgres)"
+                            description="AWS Lambda + Postgres"
                             onTest={
                                 demoConfig[demoId].method === 'Post'
                                     ? callPostApi
@@ -156,7 +200,20 @@ const ApiPlaygroundTab = ({ demoId, demoPath }) => {
                             }
                             isLoading={isLoading01}
                             label="Call Real AWS API"
+                            demoId={demoId}
                         />
+
+                        {demoId === 'csrf' && (
+                            <EndpointCard
+                                method="POST"
+                                path="/api/CsrfDemo/secure-action"
+                                description="Demonstrate CSRF protection (fetches token + validates)"
+                                onTest={callCsrfDemoApi}
+                                isLoading={isLoading02}
+                                label="Run CSRF Demo"
+                                demoId={demoId}
+                            />
+                        )}
 
                         <EndpointCard
                             method="GET"
@@ -165,6 +222,7 @@ const ApiPlaygroundTab = ({ demoId, demoPath }) => {
                             onTest={simulateMockApi}
                             isLoading={isLoading02}
                             label="Test with Mock Data"
+                            demoId={demoId}
                         />
                     </div>
 
@@ -261,6 +319,7 @@ const EndpointCard = ({
     onTest,
     isLoading,
     label,
+    demoId,
 }) => {
     const [body, setBody] = useState('');
 
@@ -280,7 +339,7 @@ const EndpointCard = ({
             </div>
             <p className="text-gray-600 text-sm mb-3">{description}</p>
 
-            {method === 'POST' && (
+            {method === 'POST' && demoId === 'jwt' && (
                 <textarea
                     className="w-full border border-gray-300 rounded p-2 text-sm font-mono text-gray-800 mb-3 focus:outline-none focus:ring-2 focus:ring-orange-400"
                     rows={4}

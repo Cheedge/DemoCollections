@@ -38,6 +38,11 @@ const demoConfig = {
     access: 'premium',
     accessCode: 'SECURE2024'
   },
+   'csrf': {
+    type: 'api',
+    tabs: ['playground', 'architecture', 'code'],
+    access: 'free',
+  },
   
   // Simulation Demos
   'pagination': {
@@ -48,7 +53,7 @@ const demoConfig = {
   
   // Messaging Flow Demos
   'kafka': {
-    type: 'flow',
+    type: 'message',
     tabs: ['flow', 'architecture', 'code'],
     access: 'premium',
     accessCode: 'KAFKA2024'
@@ -56,21 +61,35 @@ const demoConfig = {
   'rabbitmq': {
     type: 'flow',
     tabs: ['flow', 'architecture', 'code'],
-    access: 'free'
+    access: 'premium',
+    accessCode: 'RABB2025'
+  },
+  'message-compare':{
+    type: 'message',
+    tabs: ['message'],
+    access: 'premium',
+    accessCode: 'MSG2025'
   },
   
   // Event Sourcing
   'event-sourcing': {
     type: 'event',
-    tabs: ['event-stream', 'architecture', 'code'],
+    tabs: ['architecture', 'code', 'event-stream'],
     access: 'premium',
     accessCode: 'EVENT2024'
   },
   'cqrs': {
     type: 'pattern',
-    tabs: ['pattern-demo', 'architecture', 'code'],
+    tabs: ['architecture', 'code', 'pattern-demo'],
     access: 'premium',
     accessCode: 'CQRS2024'
+  },
+
+  // Advanced
+  'expression-tree':{
+    type: 'pattern',
+    tabs: ['pattern', 'architecture', 'code'],
+    access: 'free'
   },
   
   // Default configuration for unconfigured demos
