@@ -23,7 +23,7 @@ namespace backend.Features.Products.APIs.Controllers
 		}
 
 		[HttpGet("{id:guid}")]
-		public async Task<ActionResult<ProductsDTO>> GetProductById(Guid id)
+		public async Task<ActionResult<ProductsDTO>> GetProductById([FromRoute] Guid id)
 		{
 			var query = new GetProductByIdQuery
 			{

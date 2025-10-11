@@ -11,6 +11,11 @@ namespace backend.Auth
 {
 	public class AuthHelper
 	{
+        // here is not a good way, as JWT is stateless
+        // if we use diff secretKey, for the next time
+        // it will not work.
+        // if we keep diff secretKey, then we need DB
+        // this is stateful, so not good here.
         private static string secretKey = GenerateSecretKey();
 
         public static string SecretKey { get => secretKey; set => secretKey = value; }
