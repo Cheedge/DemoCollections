@@ -23,6 +23,8 @@
     <PackageReference Include="Microsoft.IdentityModel.JsonWebTokens" Version="7.7.1" />
     <PackageReference Include="Microsoft.IdentityModel.Protocols.OpenIdConnect" Version="7.7.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="7.0.0" />
+    <PackageReference Include="RabbitMQ.Client" Version="6.8.1" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.2.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -55,6 +57,13 @@
     <None Remove="Auth\Infrastructures\Repos\" />
     <None Remove="Auth\APIs\Controllers\" />
     <None Remove="Auth\APIs\Dtos\" />
+    <None Remove="Messaging\" />
+    <None Remove="Messaging\RabbitMQ\" />
+    <None Remove="Messaging\RabbitMQ\Services\" />
+    <None Remove="Messaging\RabbitMQ\Models\" />
+    <None Remove="Messaging\RabbitMQ\Controllers\" />
+    <None Remove="CSRF\" />
+    <None Remove="CSRF\Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\" />
@@ -86,5 +95,12 @@
     <Folder Include="Auth\Infrastructures\Repos\" />
     <Folder Include="Auth\APIs\Controllers\" />
     <Folder Include="Auth\APIs\Dtos\" />
+    <Folder Include="Messaging\" />
+    <Folder Include="Messaging\RabbitMQ\" />
+    <Folder Include="Messaging\RabbitMQ\Services\" />
+    <Folder Include="Messaging\RabbitMQ\Models\" />
+    <Folder Include="Messaging\RabbitMQ\Controllers\" />
+    <Folder Include="CSRF\" />
+    <Folder Include="CSRF\Controllers\" />
   </ItemGroup>
 </Project>

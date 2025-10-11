@@ -11,6 +11,8 @@ using backend.Features.Products.Applications.Querys;
 using backend.Features.Products.Infrastructures.Context;
 using backend.Features.Products.Infrastructures.Mappers;
 using backend.Features.Products.Infrastructures.Repository;
+using backend.Messaging.RabbitMQ.Services;
+using MassTransit;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -130,12 +132,43 @@ builder.Services.AddCors(options =>
     });
 });
 
-
-
 // ---------------------------
 // Controllers
 // ---------------------------
 builder.Services.AddControllers();
+
+// ---------------------------
+// CSRF token
+// ---------------------------
+builder.Services.AddAntiforgery(options =>
+{
+    options.HeaderName = "X-XSRF-TOKEN";
+});
+
+// ---------------------------
+// Add MassTransit/RabbitMQ
+// ---------------------------
+builder.Services.AddMassTransit(x =>
+{
+    // Register the consumer
+    x.AddConsumer<EmailMessageConsumer>();
+
+    // Use RabbitMQ as transport
+    x.UsingRabbitMq((context, cfg) =>
+    {
+        cfg.Host(builder.Configuration["RabbitMQ:Host"], "/", h =>
+        {
+            h.Username(builder.Configuration["RabbitMQ:Username"]);
+            h.Password(builder.Configuration["RabbitMQ:Password"]);
+        });
+
+        // Automatically configure endpoints for all consumers
+        cfg.ConfigureEndpoints(context);
+
+        // if using v4, we should using QuorumQueue: SetQuorumQueue(); 
+    });
+});
+
 
 var app = builder.Build();
 
