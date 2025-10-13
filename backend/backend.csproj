@@ -103,4 +103,16 @@
     <Folder Include="CSRF\" />
     <Folder Include="CSRF\Controllers\" />
   </ItemGroup>
+  <ItemGroup>
+    <None Condition="'$(ExcludeConfigFilesFromBuildOutput)'!='true'" Update="appsettings.json.example">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+    <None Condition="'$(ExcludeConfigFilesFromBuildOutput)'!='true'" Update="appsettings.json.Dev">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
 </Project>
