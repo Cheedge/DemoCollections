@@ -37,6 +37,9 @@ var builder = WebApplication.CreateBuilder(args);
 //    options.UserInformationEndpoint = "https://api.github.com/user";
 //});
 
+builder.Configuration
+    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+    .AddEnvironmentVariables();
 
 // ---------------------------
 // Database contexts
