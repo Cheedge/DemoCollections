@@ -15,9 +15,9 @@ const AccessControlModal = ({ demo, config, onUnlock, onCancel }) => {
     };
 
     return (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-xl p-8 max-w-md w-full shadow-2xl">
-                <div className="flex items-center gap-3 mb-4">
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 backdrop-blur-sm">
+            <div className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl border-2 border-orange-200">
+                <div className="flex items-center gap-3 mb-6">
                     <Lock className="text-orange-600" size={32} />
                     <div>
                         <h3 className="text-2xl font-bold text-gray-800">
@@ -49,13 +49,15 @@ const AccessControlModal = ({ demo, config, onUnlock, onCancel }) => {
                 <div className="flex gap-3 mb-6">
                     <button
                         onClick={handleSubmit}
-                        className="flex-1 bg-orange-600 hover:bg-orange-700 text-white px-4 py-3 rounded-lg transition"
+                        className="flex-1 px-6 py-3 bg-gradient-to-r from-orange-500 to-amber-500 text-white rounded-lg hover:from-orange-600 hover:to-amber-600 transition-all font-semibold shadow-md hover:shadow-lg"
+                        // className="flex-1 bg-orange-600 hover:bg-orange-700 text-white px-4 py-3 rounded-lg transition"
                     >
                         Unlock Demo
                     </button>
                     <button
                         onClick={onCancel}
-                        className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-3 rounded-lg transition"
+                        className="px-6 py-3 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition font-semibold"
+                        // className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-3 rounded-lg transition"
                     >
                         Cancel
                     </button>
@@ -67,7 +69,7 @@ const AccessControlModal = ({ demo, config, onUnlock, onCancel }) => {
                         Need the access code?
                     </p>
                     <a href="#" className="text-blue-600 hover:underline block">
-                        → Check my LinkedIn/GitHub
+                        Check my LinkedIn/GitHub
                     </a>
                 </div>
             </div>

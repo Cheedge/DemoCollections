@@ -5,13 +5,18 @@ import {
     MessageSquare,
     Shield,
     Activity,
+    SquarePlay,
 } from 'lucide-react';
 
 const getTabDefinitions = () => ({
     playground: { id: 'playground', label: 'API Playground', icon: Play },
     architecture: { id: 'architecture', label: 'Architecture', icon: BookOpen },
     code: { id: 'code', label: 'Code', icon: Terminal },
-    interactive: { id: 'interactive', label: 'Interactive Demo', icon: Play },
+    interactive: {
+        id: 'interactive',
+        label: 'Interactive Demo',
+        icon: SquarePlay,
+    },
     visualization: {
         id: 'visualization',
         label: 'Live Visualization',

@@ -32,7 +32,7 @@ const demoCategories = [
     title: 'Security & Compliance',
     icon: ShieldCheck,
     cases: [
-      { id: 'owasp', name: 'OWASP Best Practices', tech: ['Security', '.NET'], status: 'live' },
+      { id: 'owasp', name: 'OWASP Best Practices', tech: ['XSS', 'CSRF', 'SQL Injection'], status: 'live' },
       { id: 'csrf', name: 'OWASP - CSRF', tech: ['CSRF', '.NET'], status: 'live', path: '/api/CsrfDemo/token' },
       { id: 'spof', name: 'Single Point of Failure Prevention', tech: ['Architecture', 'Resilience'], status: '' },
       // { id: 'hipaa', name: 'HIPAA Compliance', tech: ['Encryption', 'Auditing'], status: 'live' },
@@ -49,7 +49,7 @@ const demoCategories = [
       { id: 'ef-core', name: 'Entity Framework Core', tech: ['EF Core', 'LINQ'], status: 'live' },
       { id: 'sql', name: 'SQL Server / PostgreSQL', tech: ['SQL', 'T-SQL'], status: 'live' },
       { id: 'mongodb', name: 'MongoDB', tech: ['NoSQL', 'MongoDB'], status: '' },
-      { id: 'redis', name: 'Redis Caching', tech: ['Redis', 'StackExchange.Redis'], status: 'live' },
+      { id: 'redis', name: 'Redis Caching', tech: ['Redis', 'StackExchange.Redis'], status: '' },
       { id: 'pagination', name: 'Pagination Strategies', tech: ['EF Core', 'SQL'], status: '' },
     ]
   },
@@ -62,7 +62,7 @@ const demoCategories = [
       { id: 'graphql', name: 'GraphQL API', tech: ['Hot Chocolate', '.NET'], status: '' },
       { id: 'swagger', name: 'Swagger/OpenAPI', tech: ['Swashbuckle', 'OpenAPI'], status: 'live' },
       { id: 'high-traffic', name: 'High Traffic Handling', tech: ['Load Balancing', 'Caching'], status: 'live' },
-      { id: 'integral', name: 'API integration', tech: ['API integral', 'eBay'], status: 'live' },
+      { id: 'integration', name: 'API integration', tech: ['API integral', 'eBay'], status: 'live' },
     ]
   },
   {
@@ -70,7 +70,7 @@ const demoCategories = [
     title: 'Messaging & ESB',
     icon: Zap,
     cases: [
-      { id: 'kafka', name: 'Apache Kafka', tech: ['Kafka', 'Confluent'], status: '' },
+      { id: 'kafka', name: 'Apache Kafka', tech: ['Kafka', 'Confluent'], status: 'live' },
       { id: 'rabbitmq', name: 'RabbitMQ', tech: ['RabbitMQ', 'MassTransit'], status: 'live' },
       { id: 'esb', name: 'Enterprise Service Bus', tech: ['NServiceBus'], status: '' },
       { id: 'message-compare', name: 'Compare Messaging', tech: ['demo'], status: 'live' },
@@ -138,7 +138,7 @@ const demoCategories = [
       title: 'AI Integration',
       icon: Cpu,
       cases: [
-        { id: 'openai', name: 'OpenAI API', tech: ['OpenAI', 'GPT-4'], status: '', hasInteractive: true },
+        { id: 'openai', name: 'OpenAI API', tech: ['OpenAI', 'GPT-4'], status: 'live', hasInteractive: true },
         { id: 'ml-net', name: 'ML.NET', tech: ['ML.NET', 'Machine Learning'], status: '', hasInteractive: false },
       ]
     },

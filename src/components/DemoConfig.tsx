@@ -17,13 +17,19 @@ const demoConfig = {
     tabs: ['playground', 'architecture', 'code'],
     access: 'free'
   },
+  'integration': {
+    type: 'api',
+    tabs: ['playground', 'architecture', 'code'],
+    access: 'premium',
+    accessCode: 'INTEGRATION2025'   
+  },
   
   // Visualization Demos
   'high-traffic': {
     type: 'visualization',
     tabs: ['visualization', 'architecture', 'code'],
     access: 'premium',
-    accessCode: 'SCALE2024'
+    accessCode: 'SCALE2025'
   },
   'redis': {
     type: 'visualization',
@@ -36,11 +42,16 @@ const demoConfig = {
     type: 'comparison',
     tabs: ['comparison', 'architecture', 'code'],
     access: 'premium',
-    accessCode: 'SECURE2024'
+    accessCode: 'SECURE2025'
   },
-   'csrf': {
+  'csrf': {
     type: 'api',
     tabs: ['playground', 'architecture', 'code'],
+    access: 'free',
+  },
+  'compliance':{
+    type: 'comparison',
+    tabs: ['comparison', 'architecture', 'code'],
     access: 'free',
   },
   
@@ -56,13 +67,13 @@ const demoConfig = {
     type: 'message',
     tabs: ['flow', 'architecture', 'code'],
     access: 'premium',
-    accessCode: 'KAFKA2024'
+    accessCode: 'KAFKA2025'
   },
   'rabbitmq': {
     type: 'flow',
     tabs: ['flow', 'architecture', 'code'],
-    access: 'premium',
-    accessCode: 'RABB2025'
+    access: 'free',
+    // accessCode: 'RABB2025'
   },
   'message-compare':{
     type: 'message',
@@ -74,15 +85,15 @@ const demoConfig = {
   // Event Sourcing
   'event-sourcing': {
     type: 'event',
-    tabs: ['architecture', 'code', 'event-stream'],
+    tabs: ['architecture', 'code', 'interactive'],
     access: 'premium',
-    accessCode: 'EVENT2024'
+    accessCode: 'EVENT2025'
   },
   'cqrs': {
     type: 'pattern',
     tabs: ['architecture', 'code', 'pattern-demo'],
-    access: 'premium',
-    accessCode: 'CQRS2024'
+    access: 'free',
+    // accessCode: 'CQRS2025'
   },
 
   // Advanced
@@ -90,6 +101,14 @@ const demoConfig = {
     type: 'pattern',
     tabs: ['pattern', 'architecture', 'code'],
     access: 'free'
+  },
+
+  // AI
+  'openai':{
+    type: 'event',
+    tabs: ['architecture', 'code', 'interactive'],
+    access: 'premium',
+    accessCode: 'OPENAIAPI2025'    
   },
   
   // Default configuration for unconfigured demos

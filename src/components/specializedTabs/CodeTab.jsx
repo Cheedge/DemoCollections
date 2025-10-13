@@ -3,6 +3,16 @@ import { Code } from 'lucide-react';
 import DefaultSample from './CodeExamples/DefaultSample';
 import ExpressionSample from './CodeExamples/ExpressionSample';
 import CsrfCodeSample from './CodeExamples/CsrfCodeSample';
+import MassTransitCodeSample from './CodeExamples/MassTransitCodeSample';
+import GithubActionSample from './CodeExamples/GithubActionSample';
+import MultiThreadingSample from './CodeExamples/MultiThreadingSample';
+import GcSample from './CodeExamples/GcSample';
+import MvcSample from './CodeExamples/MvcSample';
+import UnitTestSample from './CodeExamples/UnitTestSample';
+import EfSample from './CodeExamples/EfSample';
+import EsSample from './CodeExamples/EsSample';
+import EventDrivenSample from './CodeExamples/EventDrivenSample';
+import AwsPipelineSample from './CodeExamples/AwsPipelineSample';
 
 const codeSamples = {
     default: DefaultSample,
@@ -11,6 +21,16 @@ const codeSamples = {
     // 'event-sourcing': EventSourcingSample,
     'expression-tree': ExpressionSample,
     csrf: CsrfCodeSample,
+    rabbitmq: MassTransitCodeSample,
+    'github-actions': GithubActionSample,
+    multithreading: MultiThreadingSample,
+    gc: GcSample,
+    mvc: MvcSample,
+    'unit-test': UnitTestSample,
+    'ef-core': EfSample,
+    'event-sourcing': EsSample,
+    'event-driven': EventDrivenSample,
+    'aws-pipeline': AwsPipelineSample,
 };
 
 const CodeTab = ({ demoId }) => {
@@ -20,7 +40,7 @@ const CodeTab = ({ demoId }) => {
         <div className="space-y-6">
             <div className="bg-white/60 backdrop-blur rounded-lg p-6 border border-orange-200 shadow-sm">
                 <h4 className="text-lg font-semibold text-gray-800 mb-4">
-                    .NET Example
+                    Example
                 </h4>
                 <div className="bg-gray-900 rounded-lg p-4 overflow-x-auto">
                     <pre className="text-sm text-gray-300">
@@ -30,7 +50,7 @@ const CodeTab = ({ demoId }) => {
                 </div>
             </div>
 
-            <div className="bg-amber-50 border border-amber-300 rounded-lg p-6">
+            {/* <div className="bg-amber-50 border border-amber-300 rounded-lg p-6">
                 <h4 className="text-lg font-semibold text-amber-800 mb-4">
                     Database Options Comparison
                 </h4>
@@ -79,7 +99,7 @@ const CodeTab = ({ demoId }) => {
                         </tbody>
                     </table>
                 </div>
-            </div>
+            </div> */}
 
             <div className="bg-blue-50 border border-blue-200 rounded-lg p-6">
                 <h4 className="text-lg font-semibold text-blue-800 mb-3">

@@ -7,6 +7,27 @@ import DefaultTemplate, {
     DefaultArchitectureDescription,
     DefaultArchitectureAbstract,
 } from './ArchitectureTemplates/DefaultTemplate';
+import MassTransitRabbitMQTemplate, {
+    MassTransitRabbitMQDescription,
+    MassTransitRabbitMQAbstract,
+} from './ArchitectureTemplates/MassTransitTemplate';
+import JwtTemplate, {
+    JwtArchitectureDescription,
+    JwtArchitectureAbstract,
+} from './ArchitectureTemplates/JwtTemplate';
+import CqrsTemplate from './ArchitectureTemplates/CqrsTemplate';
+import DddTemplate from './ArchitectureTemplates/DddTemplate';
+import SolidTemplate from './ArchitectureTemplates/SolidTemplate';
+import EfTemplate from './ArchitectureTemplates/EfTemplate';
+import GcTemplate from './ArchitectureTemplates/GcTemplate';
+import GithubActionTemplate from './ArchitectureTemplates/GithubActionTemplate';
+import AwsPipelineTemplate from './ArchitectureTemplates/AwsPipelineTemplate';
+import MvcTemplate from './ArchitectureTemplates/MvcTemplate';
+import EventDrivenTemplate from './ArchitectureTemplates/EventDrivenTemplate';
+import OAuthTemplate from './ArchitectureTemplates/OAuthTemplate';
+import PubSubTemplate from './ArchitectureTemplates/PubSubTemplate';
+import EsTemplate from './ArchitectureTemplates/EsTemplate';
+import XssSqlInjectionTemplate from './ArchitectureTemplates/XssSqlInjectionTemplate';
 
 const ArchitectureTemplates = {
     default: [
@@ -15,21 +36,47 @@ const ArchitectureTemplates = {
         DefaultArchitectureAbstract,
     ],
     csrf: [CsrfTemplate, CsrfArchitectureDescription, CsrfArchitectureAbstract],
+    rabbitmq: [
+        MassTransitRabbitMQTemplate,
+        // MassTransitRabbitMQDescription,
+        // MassTransitRabbitMQAbstract,
+    ],
+    jwt: [JwtTemplate, JwtArchitectureDescription, JwtArchitectureAbstract],
+    cqrs: [CqrsTemplate],
+    ddd: [DddTemplate],
+    solid: [SolidTemplate],
+    'ef-core': [EfTemplate],
+    gc: [GcTemplate],
+    'github-actions': [GithubActionTemplate],
+    'aws-pipeline': [AwsPipelineTemplate],
+    mvc: [MvcTemplate],
+    'event-driven': [EventDrivenTemplate],
+    oauth: [OAuthTemplate],
+    pubsub: [PubSubTemplate],
+    'event-sourcing': [EsTemplate],
+    owasp: [XssSqlInjectionTemplate],
 };
 
 const ArchitectureTab = ({ demoId }) => {
-    const ShownTemplate = ArchitectureTemplates[demoId]
-        ? ArchitectureTemplates[demoId][0]
-        : DefaultTemplate;
-    const ShownDescription = ArchitectureTemplates[demoId]
-        ? ArchitectureTemplates[demoId][1]
-        : DefaultArchitectureDescription;
-    const ShownAbstract = ArchitectureTemplates[demoId]
-        ? ArchitectureTemplates[demoId][2]
-        : DefaultArchitectureAbstract;
+    // const ShownTemplate = ArchitectureTemplates[demoId]
+    //     ? ArchitectureTemplates[demoId][0]
+    //     : DefaultTemplate;
+    // const ShownDescription = ArchitectureTemplates[demoId]
+    //     ? ArchitectureTemplates[demoId][1]
+    //     : DefaultArchitectureDescription;
+    // const ShownAbstract = ArchitectureTemplates[demoId]
+    //     ? ArchitectureTemplates[demoId][2]
+    //     : DefaultArchitectureAbstract;
+    const templateData = ArchitectureTemplates[demoId];
+
+    const ShownTemplate = templateData?.[0] ?? DefaultTemplate;
+    const ShownDescription =
+        templateData?.[1] ?? DefaultArchitectureDescription;
+    const ShownAbstract = templateData?.[2] ?? DefaultArchitectureAbstract;
 
     return (
-        <div className="bg-white/60 backdrop-blur rounded-lg p-8 border border-orange-200 shadow-sm">
+        // <div className="bg-white/60 backdrop-blur rounded-lg p-8 border border-orange-200 shadow-sm">
+        <div>
             <h3 className="text-2xl font-semibold text-gray-800 mb-6">
                 Architecture Overview
             </h3>
