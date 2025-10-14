@@ -41,6 +41,9 @@ builder.Configuration
     .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
     .AddEnvironmentVariables();
 
+builder.Services.AddAWSLambdaHosting(LambdaEventSource.HttpApi);
+
+
 // ---------------------------
 // Database contexts
 // ---------------------------
@@ -151,25 +154,39 @@ builder.Services.AddAntiforgery(options =>
 // ---------------------------
 // Add MassTransit/RabbitMQ
 // ---------------------------
+var enableMq = builder.Configuration.GetValue<bool>("EnableRabbitMQ");
+
 builder.Services.AddMassTransit(x =>
 {
-    // Register the consumer
-    x.AddConsumer<EmailMessageConsumer>();
-
-    // Use RabbitMQ as transport
-    x.UsingRabbitMq((context, cfg) =>
+    if (enableMq)
     {
-        cfg.Host(builder.Configuration["RabbitMQ:Host"], "/", h =>
+        // Register the consumer
+        x.AddConsumer<EmailMessageConsumer>();
+
+        // Use RabbitMQ as transport
+        x.UsingRabbitMq((context, cfg) =>
         {
-            h.Username(builder.Configuration["RabbitMQ:Username"]);
-            h.Password(builder.Configuration["RabbitMQ:Password"]);
+            cfg.Host(builder.Configuration["RabbitMQ:Host"], "/", h =>
+            {
+                h.Username(builder.Configuration["RabbitMQ:Username"]);
+                h.Password(builder.Configuration["RabbitMQ:Password"]);
+            });
+
+            // Automatically configure endpoints for all consumers
+            cfg.ConfigureEndpoints(context);
+
+            // if using v4, we should using QuorumQueue: SetQuorumQueue(); 
         });
-
-        // Automatically configure endpoints for all consumers
-        cfg.ConfigureEndpoints(context);
-
-        // if using v4, we should using QuorumQueue: SetQuorumQueue(); 
-    });
+        
+    }
+    else
+    {
+            x.UsingInMemory((context, cfg) =>
+            {
+                cfg.ConfigureEndpoints(context);
+            });
+            Console.WriteLine("RabbitMQ disabled — using in-memory MassTransit transport instead.");
+    }
 });
 
 

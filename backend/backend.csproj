@@ -1,14 +1,17 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <AWSProjectType>Lambda</AWSProjectType>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
+    <PackageReference Include="Amazon.Lambda.AspNetCoreServer.Hosting" Version="1.9.0" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.9" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
     <PackageReference Include="AutoMapper" Version="13.0.1" />
@@ -102,6 +105,9 @@
     <Folder Include="Messaging\RabbitMQ\Controllers\" />
     <Folder Include="CSRF\" />
     <Folder Include="CSRF\Controllers\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="backend.csproj" />
   </ItemGroup>
   <ItemGroup>
     <None Condition="'$(ExcludeConfigFilesFromBuildOutput)'!='true'" Update="appsettings.json.example">
