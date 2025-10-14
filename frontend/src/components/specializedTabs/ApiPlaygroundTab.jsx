@@ -8,6 +8,7 @@ import {
     Loader,
     AlertCircle,
 } from 'lucide-react';
+import config from '../../config';
 
 const ApiPlaygroundTab = ({ demoId, demoPath }) => {
     const [response, setResponse] = useState(null);
@@ -15,9 +16,9 @@ const ApiPlaygroundTab = ({ demoId, demoPath }) => {
     const [isLoading02, setIsLoading02] = useState(false);
     const [error, setError] = useState(null);
     const [apiUrl, setApiUrl] = useState(
-        // 'https://your-api-id.execute-api.us-east-1.amazonaws.com/prod/products'
-        'https://localhost:7235'
+        // 'https://localhost:7235'
         // 'http://localhost:5156'
+        config.apiUrl
     );
 
     const callGetApi = async () => {

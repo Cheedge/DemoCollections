@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { CheckCircle, Lock, Loader, ContactRound } from 'lucide-react';
+import config from '../../../config';
 
 const LoginInteractiveDemo = ({ demoId, demoPath }) => {
     const [username, setUsername] = useState('');
@@ -11,8 +12,9 @@ const LoginInteractiveDemo = ({ demoId, demoPath }) => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     const [apiUrl, setApiUrl] = useState(
-        'https://localhost:7235'
+        // 'https://localhost:7235'
         // 'http://localhost:5156'
+        config.apiUrl
     );
 
     const callLoginApi = async () => {
