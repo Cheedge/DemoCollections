@@ -3,10 +3,10 @@ name: Deploy Backend to AWS Lambda
 on:
   push:
     branches:
-      - main
+      - master
     paths:
       - 'backend/**'
-      - '.github/workflows/deploy-lambda.yml'
+      - '.github/workflows/backend.yml'
   workflow_dispatch:
 
 env:
