@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Send, Mail, CheckCircle, AlertCircle } from 'lucide-react';
+import config from '../../config';
 
 const MessageFlowTab = () => {
     const [messages, setMessages] = useState([]);
@@ -9,6 +10,7 @@ const MessageFlowTab = () => {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
     const [success, setSuccess] = useState(false);
+    const [apiUrl, setApiUrl] = useState(config.apiUrl);
 
     const sendMessageLocal = () => {
         // Fallback function when backend is not accessible
@@ -40,7 +42,7 @@ const MessageFlowTab = () => {
         setSuccess(false);
 
         try {
-            const response = await fetch('https://localhost:7235/send-email', {
+            const response = await fetch(apiUrl + '/send-email', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ to, subject, body }),
