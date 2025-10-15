@@ -151,7 +151,10 @@ builder.Services.AddAntiforgery(options =>
     options.HeaderName = "X-XSRF-TOKEN";
     options.Cookie.Name = ".AspNetCore.Antiforgery";
     options.Cookie.SameSite = SameSiteMode.None; // Required for cross-origin
-    // options.Cookie.SecurePolicy = CookieSecurePolicy.Always; // HTTPS only
+    // Only require Secure in production (not for localhost)
+    options.Cookie.SecurePolicy = builder.Environment.IsDevelopment() 
+        ? CookieSecurePolicy.SameAsRequest  // Works with HTTP locally
+        : CookieSecurePolicy.Always;        // Requires HTTPS in production
 });
 
 // ---------------------------
