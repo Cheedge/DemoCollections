@@ -76,10 +76,18 @@ const ArchitectureTab = ({ demoId }) => {
 
     return (
         // <div className="bg-white/60 backdrop-blur rounded-lg p-8 border border-orange-200 shadow-sm">
-        <div>
-            <h3 className="text-2xl font-semibold text-gray-800 mb-6">
+        // <div>
+        // <div className="group relative bg-gradient-to-br from-white to-yellow-50 rounded-xl p-5 border border-gray-200 hover:border-orange-400 hover:shadow-lg transition-all duration-300">
+        <div className="min-h-screen bg-gradient-to-br from-fuchsia-90 via-rose-50 to-yellow-60 p-8">
+            <div className="text-center mb-12">
+                <h1 className="text-4xl font-bold text-gray-800 mb-3 bg-gradient-to-r from-green-600 to-indigo-600 bg-clip-text text-transparent">
+                    Architecture Overview
+                </h1>
+                <p className="text-gray-600">Architecture explaination</p>
+            </div>
+            {/* <h3 className="text-2xl font-semibold text-gray-800 mb-6">
                 Architecture Overview
-            </h3>
+            </h3> */}
             <div className="prose prose-lg max-w-none">
                 {/* <p className="text-gray-600 mb-6">
                     This implementation uses AWS serverless architecture for
