@@ -18,12 +18,12 @@ namespace backend.CSRF.Controllers
         public IActionResult GetCsrfToken()
         {
             var tokens = _antiforgery.GetAndStoreTokens(HttpContext);
-            Response.Cookies.Append("XSRF-TOKEN", tokens.RequestToken!, new CookieOptions
-            {
-                HttpOnly = false,
-                Secure = false,
-                SameSite = SameSiteMode.Strict
-            });
+            // Response.Cookies.Append("XSRF-TOKEN", tokens.RequestToken!, new CookieOptions
+            // {
+            //     HttpOnly = false,
+            //     Secure = false,
+            //     SameSite = SameSiteMode.Strict
+            // });
 
             return Ok(new { csrfToken = tokens.RequestToken });
         }
