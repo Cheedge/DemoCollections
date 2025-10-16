@@ -3,9 +3,12 @@ import { Layers } from 'lucide-react';
 import BlogLink from './BlogLink';
 
 const DddTemplate = () => {
-    const blogTitle = 'A simple but practical demo of Web Api in C#';
-    const blogUrl =
-        'https://dev.to/cheedge_lee/a-simple-but-practical-demo-of-web-api-in-c-13ad';
+    const blogsData = [
+        {
+            title: 'A simple but practical demo of Web Api in C#',
+            url: 'https://dev.to/cheedge_lee/a-simple-but-practical-demo-of-web-api-in-c-13ad',
+        },
+    ];
     return (
         <div className="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-xl p-6 border border-blue-200 shadow-sm h-full flex flex-col">
             <div className="flex items-center gap-3 mb-4">
@@ -58,7 +61,7 @@ const DddTemplate = () => {
                     <div> └── Controllers/</div>
                 </div>
             </div>
-            {blogTitle && <BlogLink title={blogTitle} url={blogUrl} />}
+            <BlogLink blogs={blogsData} />
         </div>
     );
 };

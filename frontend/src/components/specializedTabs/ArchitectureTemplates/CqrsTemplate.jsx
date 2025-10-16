@@ -3,9 +3,12 @@ import { GitBranch } from 'lucide-react';
 import BlogLink from './BlogLink';
 
 const CqrsTemplate = () => {
-    const blogTitle = 'Handler/Reader/Writer';
-    const blogUrl =
-        'https://cheedge-csharp.hashnode.space/default-guide/architecture/handlerreaderwriter';
+    const blogsData = [
+        {
+            title: 'Blog about Handler and Reader/Writer',
+            url: 'https://cheedge-csharp.hashnode.space/default-guide/architecture/handlerreaderwriter',
+        },
+    ];
     return (
         <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl p-6 border border-purple-200 shadow-sm h-full flex flex-col">
             <div className="flex items-center gap-3 mb-4">
@@ -45,7 +48,7 @@ const CqrsTemplate = () => {
                     </div>
                 </div>
             </div>
-            {blogTitle && <BlogLink title={blogTitle} url={blogUrl} />}
+            <BlogLink blogs={blogsData} />
         </div>
     );
 };

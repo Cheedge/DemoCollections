@@ -3,9 +3,12 @@ import { Box } from 'lucide-react';
 import BlogLink from './BlogLink';
 
 const SolidTemplate = () => {
-    const blogTitle = 'SOLID Principles';
-    const blogUrl =
-        'https://cheedge-csharp.hashnode.space/default-guide/oop/solid';
+    const blogsData = [
+        {
+            title: 'SOLID Principles',
+            url: 'https://cheedge-csharp.hashnode.space/default-guide/oop/solid',
+        },
+    ];
     return (
         <div className="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-xl p-6 border border-emerald-200 shadow-sm h-full flex flex-col">
             <div className="flex items-center gap-3 mb-4">
@@ -58,7 +61,7 @@ const SolidTemplate = () => {
                     </div>
                 ))}
             </div>
-            {blogTitle && <BlogLink title={blogTitle} url={blogUrl} />}
+            <BlogLink blogs={blogsData} />
         </div>
     );
 };

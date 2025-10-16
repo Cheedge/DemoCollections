@@ -3,9 +3,12 @@ import BlogLink from './BlogLink';
 import { Layers } from 'lucide-react';
 
 const MvcTemplate = () => {
-    const blogTitle = 'MVC to WebAPI';
-    const blogUrl =
-        'https://cheedge-csharp.hashnode.space/default-guide/mvc/mvc-to-webapi';
+    const blogsData = [
+        {
+            title: 'MVC to WebAPI',
+            url: 'https://cheedge-csharp.hashnode.space/default-guide/mvc/mvc-to-webapi',
+        },
+    ];
     return (
         <div className="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl p-6 border border-pink-200 shadow-sm h-full flex flex-col">
             <div className="flex items-center gap-3 mb-4">
@@ -50,7 +53,7 @@ const MvcTemplate = () => {
                     </div>
                 </div>
             </div>
-            {blogTitle && <BlogLink title={blogTitle} url={blogUrl} />}
+            <BlogLink blogs={blogsData} />
         </div>
     );
 };

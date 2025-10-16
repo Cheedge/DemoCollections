@@ -2,8 +2,7 @@ import React from 'react';
 import BlogLink from './BlogLink';
 import { Shield } from 'lucide-react';
 const OAuthTemplate = () => {
-    const blogTitle = 'oauth';
-    const blogUrl = '';
+    const blogsData = [{ title: '', url: '' }];
     return (
         <div className="bg-gradient-to-br from-indigo-50 to-blue-50 rounded-xl p-6 border border-indigo-200 shadow-sm h-full flex flex-col">
             <div className="flex items-center gap-3 mb-4">
@@ -50,7 +49,7 @@ const OAuthTemplate = () => {
                     </div>
                 </div>
             </div>
-            {blogTitle && <BlogLink title={blogTitle} url={blogUrl} />}
+            <BlogLink blogs={blogsData} />
         </div>
     );
 };

@@ -3,9 +3,12 @@ import { Database } from 'lucide-react';
 import BlogLink from './BlogLink';
 
 const EfTemplate = () => {
-    const blogTitle = 'Entity + AutoMapper + DTO';
-    const blogUrl =
-        'https://cheedge-csharp.hashnode.space/default-guide/ef/automapper-dto';
+    const blogsData = [
+        {
+            title: 'Entity + AutoMapper + DTO',
+            url: 'https://cheedge-csharp.hashnode.space/default-guide/ef/automapper-dto',
+        },
+    ];
     return (
         <div className="bg-gradient-to-br from-cyan-50 to-blue-50 rounded-xl p-6 border border-cyan-200 shadow-sm h-full flex flex-col">
             <div className="flex items-center gap-3 mb-4">
@@ -48,7 +51,7 @@ const EfTemplate = () => {
                     </div>
                 </div>
             </div>
-            {blogTitle && <BlogLink title={blogTitle} url={blogUrl} />}
+            <BlogLink blogs={blogsData} />
         </div>
     );
 };

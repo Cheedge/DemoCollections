@@ -3,8 +3,16 @@ import BlogLink from './BlogLink';
 import { Github } from 'lucide-react';
 
 const GithubActionTemplate = () => {
-    const blogTitle = 'github action';
-    const blogUrl = '';
+    const blogsData = [
+        {
+            title: 'Creating an AWS CI Pipeline: Demo and Instructions',
+            url: 'https://notes-renovation.hashnode.dev/creating-an-aws-ci-pipeline-demo-and-instructions',
+        },
+        {
+            title: 'How to Build a Basic CI/CD Pipeline Using AWS Tools',
+            url: 'https://notes-renovation.hashnode.dev/how-to-build-a-basic-cicd-pipeline-using-aws-tools',
+        },
+    ];
     return (
         <div className="bg-gradient-to-br from-slate-50 to-gray-50 rounded-xl p-6 border border-slate-200 shadow-sm h-full flex flex-col">
             <div className="flex items-center gap-3 mb-4">
@@ -78,7 +86,7 @@ const GithubActionTemplate = () => {
                     </div>
                 </div>
             </div>
-            {blogTitle && <BlogLink title={blogTitle} url={blogUrl} />}
+            <BlogLink blogs={blogsData} />
         </div>
     );
 };

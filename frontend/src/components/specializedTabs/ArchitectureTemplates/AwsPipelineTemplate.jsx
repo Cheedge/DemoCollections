@@ -3,9 +3,20 @@ import BlogLink from './BlogLink';
 import { Cloud } from 'lucide-react';
 
 const AwsPipelineTemplate = () => {
-    const blogTitle = 'Simple Demo for AWS CICD Pipeline';
-    const blogUrl =
-        'https://dev.to/cheedge_lee/simple-demo-for-aws-cicd-pipeline-2m0c';
+    const blogsData = [
+        {
+            title: 'Simple Demo for AWS CICD Pipeline',
+            url: 'https://dev.to/cheedge_lee/simple-demo-for-aws-cicd-pipeline-2m0c',
+        },
+        {
+            title: 'Creating an AWS CI Pipeline: Demo and Instructions',
+            url: 'https://notes-renovation.hashnode.dev/creating-an-aws-ci-pipeline-demo-and-instructions',
+        },
+        {
+            title: 'How to Build a Basic CI/CD Pipeline Using AWS Tools',
+            url: 'https://notes-renovation.hashnode.dev/how-to-build-a-basic-cicd-pipeline-using-aws-tools',
+        },
+    ];
     return (
         <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-xl p-6 border border-orange-200 shadow-sm h-full flex flex-col">
             <div className="flex items-center gap-3 mb-4">
@@ -37,7 +48,7 @@ const AwsPipelineTemplate = () => {
                     </div>
                 </div>
             </div>
-            {blogTitle && <BlogLink title={blogTitle} url={blogUrl} />}
+            <BlogLink blogs={blogsData} />
         </div>
     );
 };

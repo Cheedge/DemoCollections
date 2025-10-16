@@ -78,8 +78,7 @@ const SQLInjection = () => (
 );
 
 const XssSqlInjectionTemplate = () => {
-    const blogTitle = 'XSS';
-    const blogUrl = '';
+    const blogsData = [{ title: '', url: '' }];
     return (
         <div className="bg-gradient-to-br from-blue-50 to-amber-50 rounded-xl p-6 border border-blue-200 shadow-sm h-full flex flex-col">
             <div className="space-y-3 mb-6">
@@ -88,7 +87,7 @@ const XssSqlInjectionTemplate = () => {
             <div className="space-y-3 mb-6">
                 <SQLInjection />
             </div>
-            {blogTitle && <BlogLink title={blogTitle} url={blogUrl} />}
+            <BlogLink blogs={blogsData} />
         </div>
     );
 };

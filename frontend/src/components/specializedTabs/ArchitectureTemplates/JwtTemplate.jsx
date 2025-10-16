@@ -81,6 +81,7 @@ export const JwtArchitectureDescription = () => (
 );
 
 const JwtTemplate = () => {
+    const blogsData = [];
     return (
         <div className="bg-gray-100 rounded-lg p-6">
             <h4 className="text-sm font-semibold text-gray-800 mb-3">

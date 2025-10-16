@@ -3,9 +3,12 @@ import BlogLink from './BlogLink';
 import { Workflow } from 'lucide-react';
 
 const PubSubTemplate = () => {
-    const blogTitle = 'Publisher & Subscriber';
-    const blogUrl =
-        'https://cheedge-csharp.hashnode.space/default-guide/delegate/event';
+    const blogsData = [
+        {
+            title: 'Publisher & Subscriber',
+            url: 'https://cheedge-csharp.hashnode.space/default-guide/delegate/event',
+        },
+    ];
     return (
         <div className="bg-gradient-to-br from-teal-50 to-cyan-50 rounded-xl p-6 border border-teal-200 shadow-sm h-full flex flex-col">
             <div className="flex items-center gap-3 mb-4">
@@ -53,7 +56,7 @@ const PubSubTemplate = () => {
                     </div>
                 </div>
             </div>
-            {blogTitle && <BlogLink title={blogTitle} url={blogUrl} />}
+            <BlogLink blogs={blogsData} />
         </div>
     );
 };

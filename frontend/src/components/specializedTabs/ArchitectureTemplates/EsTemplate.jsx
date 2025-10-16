@@ -3,9 +3,12 @@ import BlogLink from './BlogLink';
 import { Archive } from 'lucide-react';
 
 const EsTemplate = () => {
-    const blogTitle = 'event sourcing';
-    const blogUrl =
-        'https://dev.to/cheedge_lee/a-simple-but-practical-demo-of-web-api-in-c-13ad';
+    const blogsData = [
+        {
+            title: 'A simple but practical demo of web api',
+            url: 'https://dev.to/cheedge_lee/a-simple-but-practical-demo-of-web-api-in-c-13ad',
+        },
+    ];
     return (
         <div className="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-xl p-6 border border-indigo-200 shadow-sm h-full flex flex-col">
             <div className="flex items-center gap-3 mb-4">
@@ -54,7 +57,7 @@ const EsTemplate = () => {
                     </div>
                 </div>
             </div>
-            {blogTitle && <BlogLink title={blogTitle} url={blogUrl} />}
+            <BlogLink blogs={blogsData} />
         </div>
     );
 };

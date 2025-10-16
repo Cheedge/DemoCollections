@@ -78,6 +78,12 @@ export const CsrfArchitectureDescription = () => (
 );
 
 const CsrfTemplate = () => {
+    const blogsData = [
+        {
+            title: 'From one CSRF case to see handling third-party cookie blocking in browser',
+            url: 'https://medium.com/@cheedgelee/from-one-csrf-case-to-see-handling-third-party-cookie-blocking-in-browser-cd55cb146815',
+        },
+    ];
     return (
         <div className="bg-gray-100 rounded-lg p-6">
             <pre className="text-xs text-gray-700 overflow-x-auto whitespace-pre-wrap">
@@ -172,6 +178,7 @@ const CsrfTemplate = () => {
                     </p>
                 </div>
             </div>
+            <BlogLink blogs={blogsData} />
         </div>
     );
 };

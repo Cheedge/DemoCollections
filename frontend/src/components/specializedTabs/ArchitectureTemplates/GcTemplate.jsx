@@ -3,9 +3,12 @@ import { Trash2 } from 'lucide-react';
 import BlogLink from './BlogLink';
 
 const GcTemplate = () => {
-    const blogTitle = 'Garbage Collection';
-    const blogUrl =
-        'https://cheedge-csharp.hashnode.space/default-guide/clr/gc';
+    const blogsData = [
+        {
+            title: 'Garbage Collection',
+            url: 'https://cheedge-csharp.hashnode.space/default-guide/clr/gc',
+        },
+    ];
     return (
         <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-xl p-6 border border-amber-200 shadow-sm h-full flex flex-col">
             <div className="flex items-center gap-3 mb-4">
@@ -53,7 +56,7 @@ const GcTemplate = () => {
                     Objects promoted based on survival across collections
                 </div>
             </div>
-            {blogTitle && <BlogLink title={blogTitle} url={blogUrl} />}
+            <BlogLink blogs={blogsData} />
         </div>
     );
 };
