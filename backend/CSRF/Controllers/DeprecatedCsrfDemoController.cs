@@ -1,15 +1,18 @@
 ﻿using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Mvc;
-
+/*
+ * This is deprecated, because of the third-party cookie blocking in browser
+ * these cookies will not be stored in the browser, so it cannot be Post.
+ */
 namespace backend.CSRF.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class CsrfDemoController : ControllerBase
+    public class DeprecatedCsrfDemoController : ControllerBase
     {
         private readonly IAntiforgery _antiforgery;
 
-        public CsrfDemoController(IAntiforgery antiforgery)
+        public DeprecatedCsrfDemoController(IAntiforgery antiforgery)
         {
             _antiforgery = antiforgery;
         }
